@@ -1,2 +1,2 @@
-# classbuiler
-showcase of classbuilder I developed as a utility for my company.
+# ClassBuiler
+Showcase of ClassBuilder java class I developed as a utility for my company. It gain the attention of our head architect for its potential benefit not only to our automation repositories but to other boiler plate code that could be automated throughout the application. They decided on an established 3rd party code generating tool. This repository is to show example code I am proud to have designed and implemented. Will consider making an example project to show it in action.
