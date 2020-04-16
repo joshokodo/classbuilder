@@ -22,6 +22,13 @@ public class ServiceWrapperGenerator {
 
     private static final String SWAGGER_API_URL =
             "https://company.com/%s/v2/api-docs?group=%s-service";
+    
+    private static final String[] SERVICES =
+    {
+        "serviceA",
+        "serviceB",
+        "serviceC"
+    };
 
     private final String BASE_PACKAGE_PATH = "com.company.test.tasks.servicewrappers.%s";
 
@@ -85,9 +92,17 @@ public class ServiceWrapperGenerator {
         if (args.length == 0) {
             throw new MissingArgumentException("must provide service arguments when running this tasks");
         }
-        for (String service : args) {
-            Response response = SerenityRest.get(String.format(SWAGGER_API_URL, service, service));
-            new ServiceWrapperGenerator().generateServiceWrapperClass(response.getBody().asString());
+        if(args[0].equalsIgnoreCase("all")){
+            for (String service : SERVICES) {
+                Response response = SerenityRest.get(String.format(SWAGGER_API_URL, service, service));
+                new ServiceWrapperGenerator().generateServiceWrapperClass(response.getBody().asString());
+            }
+        }
+        else{
+            for (String service : args) {
+                Response response = SerenityRest.get(String.format(SWAGGER_API_URL, service, service));
+                new ServiceWrapperGenerator().generateServiceWrapperClass(response.getBody().asString());
+            }
         }
     }
 
