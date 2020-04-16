@@ -1,4 +1,4 @@
-package com.vertafore.test.utilities.classgenerator;
+package com.company.test.utilities.classgenerator;
 
 import java.io.BufferedWriter;
 import java.io.File;
